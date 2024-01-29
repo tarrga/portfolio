@@ -54,8 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
     threshold: 0.0001,
   };
 
-  // console.log('test');
-
   function projectTouch(projects, observer) {
     projects.forEach(project => {
       if (project.isIntersecting) {

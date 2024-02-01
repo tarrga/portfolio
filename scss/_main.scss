@@ -111,7 +111,7 @@ section {
   scroll-margin: 100px;
   padding: 0 40px;
   margin-bottom: 50px;
-  transition: all 0.2s;
+  transition: all 0.2s ease-in-out;
   background-color: var(--bg);
   width: 100%;
   @media only screen and (max-width: 767px) {
@@ -125,6 +125,7 @@ section:not(.home, .hexagon) {
     opacity: 0;
     top: 50px;
     transition: all 0.8s ease-in-out;
+    transition-property: top, opacity, right, left;
   }
   &.animate {
     .container {
@@ -190,7 +191,10 @@ section.home {
         min-height: 45px;
       }
       .button {
+        display: inline-block;
         align-items: center;
+        transition: all 0.2s ease-in-out;
+        transition-property: transform, background-color, color;
         &:hover {
           background-color: transparent;
           transform: scale(1.05);
@@ -209,7 +213,8 @@ section.home {
           height: 5rem;
           border-radius: 300px;
           padding: 0;
-          transition: color, background-color, margin-right 0.2s;
+          transition: all 0.2s ease-in-out;
+          transition-property: transform, background-color, color;
           @media only screen and (max-width: 991px) {
             margin-right: 2vw;
             margin-bottom: 2vw;
@@ -316,6 +321,7 @@ section.experience {
         align-items: center;
         transform: scale(0.95);
         transition: all 1.2s ease-in-out;
+        transition-property: right, opacity, transform;
         &.animate {
           right: 0;
           opacity: 1;
@@ -393,16 +399,15 @@ section.experience {
             margin-bottom: 8px;
             display: flex;
             align-items: center;
-            & > i {
-              margin-right: 10px;
-            }
-            .firebase-icon {
-              display: inline-block;
-              height: 30px;
-              margin-left: -5px;
+            .icon-container {
+              display: flex;
+              height: 25px;
               img {
                 height: 100%;
               }
+            }
+            & > i {
+              margin-right: 10px;
             }
           }
           .container-buttons {
